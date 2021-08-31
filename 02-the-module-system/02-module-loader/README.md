@@ -2,13 +2,13 @@
 
 در نود حی اس require یک تابع گلوبال می باشد. که دارای:
 
-‍‍‍```node
+```
 require.resolve(fileName)
 ```
 
 که مسیر فایل مورد نظر را برمیگرداند
 
-```node
+```nodejs
 require.cache
 ```
 کش کردن
