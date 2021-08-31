@@ -1,6 +1,7 @@
 # توضیحات فارسی
 
-در نود حی اس require یک تابع گلوبال می باشد. که دارای:
+
+<p dir='rtl' align='right'>در نود حی اس require یک تابع گلوبال می باشد. که دارای:</p>
 
 ```
 require.resolve(fileName)
