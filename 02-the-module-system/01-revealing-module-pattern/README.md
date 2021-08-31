@@ -9,3 +9,16 @@ To run the example launch:
 ```bash
 node index.js
 ```
+
+```
+exports.loaded = false
+const b = require('./b')
+
+exports.test = "a"
+
+module.exports = {
+  b,
+  loaded: true // overrides the previous export
+}
+
+```nodejs
