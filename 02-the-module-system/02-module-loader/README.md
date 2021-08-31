@@ -1,4 +1,4 @@
-# توضیحات فارسی
+<p dir='rtl' align='right'># توضیحات فارسی</p>
 
 
 <p dir='rtl' align='right'>در نود حی اس require یک تابع گلوبال می باشد. که دارای:</p>
