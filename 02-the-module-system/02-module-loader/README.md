@@ -18,14 +18,20 @@ require.cache
 ************************************
 برای ساخت و append داده به ابجکت؛
 
-‍‍‍```node
+```nodejs
+
 require.cache = {}
+
 const module = {
+
  exports: {},
+ 
  id
+ 
 }
 
 require.cache[id] = module
+
 ```
 
 
