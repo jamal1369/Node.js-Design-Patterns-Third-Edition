@@ -10,7 +10,7 @@ To run the example launch:
 node index.js
 ```
 
-```
+```nodejs
 exports.loaded = false
 const b = require('./b')
 
@@ -21,4 +21,4 @@ module.exports = {
   loaded: true // overrides the previous export
 }
 
-```nodejs
+```
