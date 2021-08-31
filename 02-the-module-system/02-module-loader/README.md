@@ -1,3 +1,34 @@
+# توضیحات فارسی
+
+در نود حی اس require یک تابع گلوبال می باشد. که دارای:
+
+‍‍‍```node
+require.resolve(fileName)
+```
+
+که مسیر فایل مورد نظر را برمیگرداند
+
+```node
+require.cache
+```
+کش کردن
+
+تابع گلوبال require تا قبل از اینکه require شخصی سازی خودمون رو تعریف نکنیم کار میکنه و قابل دسترسی است ولی بعد از اینکه require سفارشی ما تعریف میشه (یک تابع سفارشی)‌ دیگه require اصلی و گلوبال رو نمی شناسه و require شخصی ما رو می شناسه. 
+
+************************************
+برای ساخت و append داده به ابجکت؛
+
+‍‍‍```node
+require.cache = {}
+const module = {
+ exports: {},
+ id
+}
+
+require.cache[id] = module
+```
+
+
 # 02-module-loader
 
 This sample demonstrate how to build a custom module system, which is 
