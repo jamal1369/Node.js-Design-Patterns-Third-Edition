@@ -1,5 +1,6 @@
 <p dir='rtl' align='right'># توضیحات فارسی</p>
 
+<p dir='rtl' align='right'>ساخت یک لودر شخصی برای ماژول ها</p>
 
 <p dir='rtl' align='right'>در نود حی اس require یک تابع گلوبال می باشد. که دارای:</p>
 
