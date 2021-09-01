@@ -6,3 +6,5 @@ Node.js Design Patterns Third Edition (published by Packt), A book by Mario Casc
 
 ### [🌎 Official website](https://www.nodejsdesignpatterns.com)
 
+<p dir="rtl" align="right">توضیحات فارسی مثال ها و تمرینات کتاب دیزاین پترن نودجی اس</p>
+
