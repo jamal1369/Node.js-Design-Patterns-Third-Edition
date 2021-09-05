@@ -8,3 +8,5 @@ Node.js Design Patterns Third Edition (published by Packt), A book by Mario Casc
 
 # <p dir="rtl" align="right">توضیحات فارسی مثال ها و تمرینات کتاب دیزاین پترن نودجی اس</p>
 
+<p dir="rtl" align="right">در برنامه نویسی سنتی blocking I/O اجرای نخ تا اتمام عملیات ورودی و خروجی مسدود می شود</p>
+
