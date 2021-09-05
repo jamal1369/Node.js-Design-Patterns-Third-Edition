@@ -10,3 +10,12 @@ Node.js Design Patterns Third Edition (published by Packt), A book by Mario Casc
 
 <p dir="rtl" align="right">در برنامه نویسی سنتی blocking I/O اجرای نخ تا اتمام عملیات ورودی و خروجی مسدود می شود</p>
 
+‍‍‍```
+// blocks the thread until the data is available
+data = socket.read()
+// data is available
+print(data)
+```
+
+<p dir="rtl" align="right">راه حل در برنامه نویسی سنتی استفاده از چندین نخ یا پراسس است که مسدود شدن یک نخ بروی انجام دیگر نخ ها تاثیر منفی نخواهد داشت</p>
+
