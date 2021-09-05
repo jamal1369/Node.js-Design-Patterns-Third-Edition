@@ -2,6 +2,27 @@
 
 <p dir='rtl' align='right'>ساخت یک لودر شخصی برای ماژول ها</p>
 
+<p dir='rtl' align='right'>
+ برای درک عملکرد commonJS در این مثال یک سیستم مشابه رو می نویسیم
+ 
+ در این مثال عملکرد require() اصلی نودجی اس را تقلید می کنیم
+</p>
+
+```
+function loadModule (filename, module, require) {
+  const wrappedSrc =
+    `(function (module, exports, require) {
+      ${fs.readFileSync(filename, 'utf8')}
+    })(module, module.exports, require)`
+  eval(wrappedSrc)
+}
+```
+
+<p dir="rtl" align="right">
+ لیستی از متغیرها را به ماژول پاس داده ایم با module, exports, و require
+
+ ما از readFileSync استفاده کرده ایم در حالت عادی استفاده از نسخه همزمان توابع سیستم فایل توصیه نمی شود ولی در اینجا منطقی است چون اما در انجا مکنطقی است چون بارگزاری فایل سیستم در commonJS عملیات همزان است 
+</p>
 <p dir='rtl' align='right'>در نود حی اس require یک تابع گلوبال می باشد. که دارای:</p>
 
 ```
