@@ -82,10 +82,11 @@ require.resolve = (moduleName) => {
   </p>
       <p dir='rtl' align='right'>
  - در نهایت module.exports که نمایانگر API های عمومی ماژول است به صدا زننده بازگرداننده می شود
- 
- 
  </p>
-
+ 
+ <p dir='rtl' align='right'>
+ همه چیز داخل یک module خصوصی است مگر اینکه متغیر module.exports اختصاص داده شود محتوای این متغیر در حافظه کش قرار میگرد و با بعد از لود شدن توسط require() بازگردانده می شود
+ </p>
  
 <p dir='rtl' align='right'>در نود حی اس require یک تابع گلوبال می باشد. که دارای:</p>
 
