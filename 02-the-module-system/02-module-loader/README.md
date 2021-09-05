@@ -4,7 +4,9 @@
 
 <p dir='rtl' align='right'>
  برای درک عملکرد commonJS در این مثال یک سیستم مشابه رو می نویسیم
- 
+ </p>
+
+ <p dir='rtl' align='right'>
  در این مثال عملکرد require() اصلی نودجی اس را تقلید می کنیم
 </p>
 
@@ -85,8 +87,44 @@ require.resolve = (moduleName) => {
  </p>
  
  <p dir='rtl' align='right'>
- همه چیز داخل یک module خصوصی است مگر اینکه متغیر module.exports اختصاص داده شود محتوای این متغیر در حافظه کش قرار میگرد و با بعد از لود شدن توسط require() بازگردانده می شود
+ همه چیز داخل یک module خصوصی است مگر اینکه متغیر module.exports اختصاص داده شود محتوای این متغیر در حافظه کش قرار میگرد و بعد از لود شدن توسط require() بازگردانده می شود
  </p>
+ 
+ ## module.exports versus exports
+ 
+ <p dir='rtl' align='right'>
+ متغیر exports فقط یک رفرنس از مقدار initial متغیر module.exports می باشد ما دیدیم که این مقدار در واقع یک ابجکت ساده می باشد که قبل از لود ماژول ساخته شده است
+ </p>
+ 
+ <p dir='rtl' align='right'>
+ این یعنی ما فقط می توانیم ویژگی هایی جدیدی را به ایجکت مورد اشاره توسط متغیر exports وصل کنیم همانطور که در کد زیر می بینید:
+ </p>
+ 
+ ```
+ exports.hello = () => {
+  console.log('Hello')
+}
+ ```
+ 
+ <p dir='rtl' align='right'>
+ تخصیص دوباره متغیر exports هیچ تاثیری ندارد زیرا محتوای module.exports را تغییر نمی دهد بنابراین کد زیر اشتباه است
+ </p>
+ 
+ ```
+ exports = () => {
+  console.log('Hello')
+}
+ ```
+ 
+ <p dir='rtl' align='right'>
+ اگر بخواهیم چیزی غیر از یک شی export کنیم مثل یک تابع یک instance و حتی یک رشته باید دوباره reassign کنیم  module.exports را مثل زیر تغییر دهیم
+ </p>
+ 
+ ```
+ module.exports = () => {
+  console.log('Hello')
+}
+ ```
  
 <p dir='rtl' align='right'>در نود حی اس require یک تابع گلوبال می باشد. که دارای:</p>
 
