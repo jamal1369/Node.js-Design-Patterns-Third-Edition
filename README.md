@@ -50,3 +50,10 @@ while (!resources.isEmpty()) {
 
 
 ![image](https://user-images.githubusercontent.com/45192069/132132474-b67e4988-07bc-43e6-9c3e-da65e047ecec.png)
+
+
+<p dir="rtl" align="right">
+  ماژول یک برنامه کوچک قابل توسعه و تست می باشد. 
+در نودجی است دو سیستم ماژول وجود دارد: یک:  CommonJS دو:  ECMAScript 
+می‌توانیم با هر کدام که بخواهیم ماژول بنویسیم. 
+  </p>
