@@ -25,7 +25,61 @@ function loadModule (filename, module, require) {
 <p dir="rtl" align="right">
   ما از readFileSync استفاده کرده ایم در حالت عادی استفاده از نسخه همزمان توابع سیستم فایل توصیه نمی شود ولی در اینجا منطقی است چون در commonJS بارگذاری ماژول ها عمدا عملیات همزمان است
  </p>
+ <p dir="rtl" align="right">
+ این باعث می شود اگر ماژول های متعدد وارد می کنیم وابستگی های انها  هم به ترتیب وارد شود
+ </p>
  
+  <p dir="rtl" align="right">
+ دستوراتی مثل eval و دستورات ماژول vm می تواند خطرناک باشد و منجر به تزریق کد به برنامه ما شوند
+ </p>
+ 
+ <p dir="rtl" align="right">
+ حالا require رو پیاده سازی می کنیم
+ </p>
+ 
+ ```
+ function require (moduleName) {
+  console.log(`Require invoked for module: ${moduleName}`)
+  const id = require.resolve(moduleName)                   // (1)
+  if (require.cache[id]) {                                 // (2)
+    return require.cache[id].exports
+  }
+  // module metadata
+  const module = {                                         // (3)
+    exports: {},
+    id
+  }
+  // Update the cache
+  require.cache[id] = module                               // (4)
+  // load the module
+  loadModule(id, module, require)                          // (5)
+  // return exported variables
+  return module.exports                                    // (6)
+}
+require.cache = {}
+require.resolve = (moduleName) => {
+  /* resolve a full module id from the moduleName */
+}
+```
+
+<p dir='rtl' align='right'>
+ مراحل سیستم فایل خانگی ما
+ 
+ - نام ماژول به عنوان ورودی پذیرفته می شود مسیر کامل ماژول را که id می نامیم را resolve می کنیم
+ 
+ - اگر ماژول قبلا بارگذاری شده باشد و در حافظه کش باشد بلافاصله ان را برمیگردانیم
+ 
+ - اگر قبلا ماژول لود نشده باشد محیط را برای اولین لود اماده می کنیم یک ابجکت module می سازیم که حاوی exports است این ابجکت با کد ماژول پر می شود تا API های عمومی ان را export کند
+ 
+ - پس از بارگذاری اولیه، ابجکت ماژول کش می شود
+ 
+ - کد ماژول از فایل ان خوانده می شود ما ماژول را با ابجکت ماژول ارائه دادیم و یک ارجاعی به تابع require()  ارائه می دهد ماژول دستورات عمومی خود را با دستکاری یا جایگزینی در شی module.exports برمیگرداند
+ 
+ - در نهایت module.exports که نمایانگر API های عمومی ماژول است به صدا زننده بازگرداننده می شود
+ 
+ 
+ </p>
+
  
 <p dir='rtl' align='right'>در نود حی اس require یک تابع گلوبال می باشد. که دارای:</p>
 
