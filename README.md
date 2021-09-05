@@ -23,4 +23,28 @@ print(data)
 
 ![نخ ها در برنامه نویسی سنتی](https://user-images.githubusercontent.com/45192069/132132127-7eb646b3-36b0-453b-bfd0-97a4f02806b5.png)
 
+<p dir="rtl" align="right">زبان نودجی اس از روش non-blocking I/O استفاده می کند </p>
+
+```
+resources = [socketA, socketB, fileA]
+while (!resources.isEmpty()) {
+  for (resource of resources) {
+    // try to read
+    data = resource.read()
+    if (data === NO_DATA_AVAILABLE) {
+      // there is no data to read at the moment
+      continue
+    }
+    if (data === RESOURCE_CLOSED) {
+      // the resource was closed, remove it from the list
+      resources.remove(i)
+    } else {
+      //some data was received, process it
+      consumeData(data)
+    }
+  }
+}
+```
+
+<p dir="rtl" align="right">در کد بالا سی پی یو زیادی مصرف می شود چون مجبور است بارها بررسی کند تا زمانی که یک منبع اماده شود کد بالا برای مدیریت غیرمسدود شده مناسب نیست یکی از روش های خوب برای غیرمسدود کننده استفاده از رویدادهای همزمان (synchronous event) که رابط اطلاع رسانی رویداد نیز نامیده می شود می باشد</p>
 
