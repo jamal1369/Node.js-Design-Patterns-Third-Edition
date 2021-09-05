@@ -126,6 +126,9 @@ require.resolve = (moduleName) => {
 }
  ```
  
+ 
+ 
+## Other Description 
 <p dir='rtl' align='right'>در نود حی اس require یک تابع گلوبال می باشد. که دارای:</p>
 
 ```
