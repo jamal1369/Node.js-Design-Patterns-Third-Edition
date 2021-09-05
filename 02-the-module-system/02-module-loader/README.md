@@ -117,7 +117,7 @@ require.resolve = (moduleName) => {
  ```
  
  <p dir='rtl' align='right'>
- اگر بخواهیم چیزی غیر از یک شی export کنیم مثل یک تابع یک instance و حتی یک رشته باید دوباره reassign کنیم  module.exports را مثل زیر تغییر دهیم
+ اگر بخواهیم چیزی غیر از یک ابجکت export کنیم مثل یک تابع یک instance و حتی یک رشته باید دوباره reassign کنیم  module.exports را مثل زیر:
  </p>
  
  ```
