@@ -126,8 +126,9 @@ require.resolve = (moduleName) => {
 }
  ```
  
+ ## 
  <p dir="rtl" align="right">
-## تابع require همزمان (Synchronous) است
+ تابع require همزمان (Synchronous) است
 </p>
 
 <p dir="rtl" align="right">
