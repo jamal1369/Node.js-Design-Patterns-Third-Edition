@@ -1,4 +1,11 @@
-
+<p dir="rtl" align="right">
+این توضیحات برای مثال های زیر هم می باشد
+ </p>
+ 
+ - 05-cjs-exporting-a-function
+ - 06-cjs-exporting-a-constructor
+ - 07-cjs-exporting-an-instance
+ 
 # named exports: 
 
 <p dir="rtl" align="right">
