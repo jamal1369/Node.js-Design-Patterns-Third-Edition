@@ -23,7 +23,7 @@ print(data)
 
 ![نخ ها در برنامه نویسی سنتی](https://user-images.githubusercontent.com/45192069/132132127-7eb646b3-36b0-453b-bfd0-97a4f02806b5.png)
 
-<p dir="rtl" align="right">زبان نودجی اس از روش non-blocking I/O استفاده می کند </p>
+<p dir="rtl" align="right">زبان نودجی اس از روش non-blocking I/O استفاده می کند )ناهمزمان) </p>
 
 ```
 resources = [socketA, socketB, fileA]
