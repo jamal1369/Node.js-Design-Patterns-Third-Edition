@@ -10,6 +10,11 @@ Node.js Design Patterns Third Edition (published by Packt), A book by Mario Casc
 
 ## Blocking VS. Non-Blocking
 
+**Synchronously == Blocking == همزمان**
+
+**Asynchronously == Non-Blocking == ناهمزمان**
+
+
 <p dir="rtl" align="right">
  کارهای مثل تعامل با دیسک سخت و شبکه عملیات I/O می گویند
 </p>
@@ -19,6 +24,24 @@ Node.js Design Patterns Third Edition (published by Packt), A book by Mario Casc
 <p dir="rtl" align="right">
   زمانی که اجرای کدهای جاوااسکریپت به عملیات I/O می رسد باید منتظر بماند تا عملیات تمام شود. دلیل این امر:‌چون حلقه رویداد قادر به اجرای جاوااسکریپت در حین وقوع عملیات Blocking رو ندارد
 </p>
+
+<p dir="rtl" align="right">
+در NodeJS، جاوااسکریپت عملکرد شعیفی نشان می دهد وقتی منتظر کدهای غیر جاوااسکریپتی هستیم چون عملیات I/O سی پی یو زیادی مصرف میکنند
+ </p>
+ 
+ <p dir="rtl" align="right">
+در کتابخانه استاندارد نوجی اس متدهای همزمان یا Synchronously به نام libuv وجود دارد که متداول ترین عملیات Blocking نودجی اس هستند
+ </p>
+ 
+ <p dir="rtl" align="right">
+ماژول های بومی نیز ممکن است متدهای Blocking داشته باشند
+ </p>
+ 
+ <p dir="rtl" align="right">
+همه متدهای I/O در کتابخانه استاندارد نودجی اس نسخه ناهمزمان )Asynchronously) نیز دارند که Non-Blocking هستند و توابع Callback را می پذیرند. برخی متدها دارای معادل Blocking نیز هستند که نام تابع به Sync ختم می شود
+ </p>
+ 
+ 
 
 
 
