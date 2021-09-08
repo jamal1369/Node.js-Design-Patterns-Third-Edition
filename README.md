@@ -19,8 +19,6 @@ Node.js Design Patterns Third Edition (published by Packt), A book by Mario Casc
  کارهای مثل تعامل با دیسک سخت و شبکه عملیات I/O می گویند
 </p>
 
-### Blocking
-
 <p dir="rtl" align="right">
   زمانی که اجرای کدهای جاوااسکریپت به عملیات I/O می رسد باید منتظر بماند تا عملیات تمام شود. دلیل این امر:‌چون حلقه رویداد قادر به اجرای جاوااسکریپت در حین وقوع عملیات Blocking رو ندارد
 </p>
@@ -42,8 +40,31 @@ Node.js Design Patterns Third Edition (published by Packt), A book by Mario Casc
  </p>
  
  
+  <p dir="rtl" align="right">
+  در کد پایین در خط دوم عملیات بلاک می شود تا خواندن فایل کامل شود اگر این خط به خطا بخورد کل برنامه کرش می کند مگر اینکه خطا را هندل کرده باشین
+ </p>
+ 
+ ```
+ const fs = require('fs')
+ const data = fs.readFileSync('/file.md')
+ ```
+ 
+  <p dir="rtl" align="right">
+  در کد پایین کدهای بعد readFile اجرا می شوند و پس از اتمام عملیات I/O کدهای کال بک اجرا خواهد شد
+ </p>
+ 
+ ```
+ const fs = require('fs')
+ fs.readFile('/file.md', (err, data)=> {
+   if(err) throw err;
+ });
+ ```
+ 
+  <p dir="rtl" align="right">
+  در کد دوم که نسخه ناهمزمان کد اول می باشد گرفتن خطا اختیاری است چون خطا دادن در کد ناهمزمان بروی عملکرد دیگر کدها تاثیری ندارد ولی در کد اول چون در موقع خواندن فایل کل عملیات JS قفل می شود در صورت خطا کرش کل برنامه رو داریم
+</p>
 
-
+### Blocking
 
 <p dir="rtl" align="right">در برنامه نویسی سنتی blocking I/O اجرای نخ تا اتمام عملیات ورودی و خروجی مسدود می شود</p>
 
