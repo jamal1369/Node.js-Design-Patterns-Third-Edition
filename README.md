@@ -8,6 +8,20 @@ Node.js Design Patterns Third Edition (published by Packt), A book by Mario Casc
 
 # <p dir="rtl" align="right">توضیحات فارسی مثال ها و تمرینات کتاب دیزاین پترن نودجی اس</p>
 
+## Blocking VS. Non-Blocking
+
+<p dir="rtl" align="right">
+ کارهای مثل تعامل با دیسک سخت و شبکه عملیات I/O می گویند
+</p>
+
+### Blocking
+
+<p dir="rtl" align="right">
+  زمانی که اجرای کدهای جاوااسکریپت به عملیات I/O می رسد باید منتظر بماند تا عملیات تمام شود. دلیل این امر:‌چون حلقه رویداد قادر به اجرای جاوااسکریپت در حین وقوع عملیات Blocking رو ندارد
+</p>
+
+
+
 <p dir="rtl" align="right">در برنامه نویسی سنتی blocking I/O اجرای نخ تا اتمام عملیات ورودی و خروجی مسدود می شود</p>
 
 ```
