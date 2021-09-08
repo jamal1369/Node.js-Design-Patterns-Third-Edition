@@ -24,7 +24,7 @@ Node.js Design Patterns Third Edition (published by Packt), A book by Mario Casc
 </p>
 
 <p dir="rtl" align="right">
-در NodeJS، جاوااسکریپت عملکرد شعیفی نشان می دهد وقتی منتظر کدهای غیر جاوااسکریپتی هستیم چون عملیات I/O سی پی یو زیادی مصرف میکنند
+در NodeJS، جاوااسکریپت عملکرد ضعیفی نشان می دهد وقتی منتظر کدهای غیر جاوااسکریپتی هستیم چون عملیات I/O سی پی یو زیادی مصرف میکنند
  </p>
  
  <p dir="rtl" align="right">
