@@ -195,7 +195,6 @@ export default class Logger {
 </p>
 
 ```
-
 // main.js
 import MyLogger from './logger.js'
 const logger = new MyLogger('info')
@@ -209,8 +208,8 @@ logger.log('Hello World')
 <p dir="rtl" align="right">
 روش default export معادل named export با نام default است. با کد زیر این ادعا را می توان ثابت کرد:
 </p>
-```
 
+```
 // showDefault.js
 import * as loggerModule from './logger.js'
 console.log(loggerModule)
