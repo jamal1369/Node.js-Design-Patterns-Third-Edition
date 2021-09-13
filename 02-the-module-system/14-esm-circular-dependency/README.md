@@ -132,6 +132,15 @@ b -> <ref *1> [Module] {
 ۴. هنوز هیچ مقداری قرار نمیگیرد
 </p>
 
+<p dir="rtl" align="right">
+فاز سوم: ارزیابی
+</p>
+
+<p dir="rtl" align="right">
+تمام کدهای هر فایل اجرا می شود. اجرا هم از پایین به بالا می باشد پس main,js اخرین فایلی است که باید اجرا شود. پس ما مطمئن هستیم که همه مقادیر اکسپورت شده مقدار دهی شده اند. 
+</p>
+
+![image](https://user-images.githubusercontent.com/45192069/133129722-0fb0e719-5da5-4dc8-9d1f-d919a60a687f.png)
 
 
 # 13-esm-circular-dependency
