@@ -83,6 +83,57 @@ b -> <ref *1> [Module] {
   </p>
   
   
+  
+ <p dir="rtl" align="right"> 
+ فاز دوم: پیاده سازی
+</p>
+
+![image](https://user-images.githubusercontent.com/45192069/133127830-f9250bbf-24a5-4e15-93c4-0825e268577c.png)
+
+ <p dir="rtl" align="right">
+مفسر نمای درخت مرحله قبل را از پایین به بالا پیاده میکند. برای هرماژول، ابتدا تمام ویژگی های ایمپورت شده را جستجو کرده و نقشه ای از نام های ایمپورت شده در حافظه ایجاد میکند
+</p>
+
+<p dir="rtl" align="right">
+۱. مترجم از b.js شروع می کند و متوجه می شود که این ماژول، loaded و a را اکسپورت می کند
+</p>
+
+<p dir="rtl" align="right">
+۲. سپس به a.js حرکت میکند. که loaded  و b را اکسپورت کرده است
+</p>
+
+<p dir="rtl" align="right">
+۳. در پایان، به main.js حرکت میکند که هیچ تابعی را اکسپورت نکرده است
+</p>
+
+<p dir="rtl" align="right">
+4. در این مرحله، نقشه اکسپورت فقط نام های صادرشده را دنبال میکند. و برای این نام ها هیچ مقداری در نظر نمیگیرد.
+</p>
+
+![image](https://user-images.githubusercontent.com/45192069/133127866-ce2a493b-94b4-4b6d-9e6b-9e99a51d63af.png)
+
+<p dir="rtl" align="right">
+چیزی که در تصویر بالا می بینید را می توان اینگونه شرح داد:
+</p>
+
+<p dir="rtl" align="right">
+۱. ماژول b.js به تمام اکسپورت ها را از a.js لینک میکند و از ان به عنوان aModule یاد میکند
+</p>
+
+<p dir="rtl" align="right">
+۲. به نوبه ی خود، a.js به تمام اکسپورت ها از b.js لینک میزند و ان انها به عنوان bModule یاد میکند
+</p>
+
+<p dir="rtl" align="right">
+۳. سرانجام main.js تمام اکسپورت های a.js را ایمپورت و ازانها به عنوان a یاد میکند. و به همین صورت برای b.js انجام می دهد
+</p>
+
+<p dir="rtl" align="right">
+۴. هنوز هیچ مقداری قرار نمیگیرد
+</p>
+
+
+
 # 13-esm-circular-dependency
 
 This sample demonstrates that ESM can effectively resolve circular dependencies.
