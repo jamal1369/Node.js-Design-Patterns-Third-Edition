@@ -36,6 +36,25 @@ export function mockDisable () {                           // (5)
 ۵. در نهایت تابع mockDisable()  اکسپورت شده را استفاده کردیم تا تابع اصلی را فعال کنیم.
 
 
+یک مثال ساده از استفاده از ماژول: 
+
+```
+// main.js
+import fs from 'fs'                                          // (1)
+import { mockEnable, mockDisable } from './mock-read-file.js'
+mockEnable(Buffer.from('Hello World'))                       // (2)
+fs.readFile('fake-path', (err, data) => {                    // (3)
+  if (err) {
+    console.error(err)
+    process.exit(1)
+  }
+  console.log(data.toString()) // 'Hello World'
+})
+mockDisable()
+```
+
+
+
 # 15-esm-modifying-other-modules
 
 This sample demonstrates how an ESM module can be use to alter another module.
