@@ -61,25 +61,28 @@ b -> <ref *1> [Module] {
 
 ![image](https://user-images.githubusercontent.com/45192069/133125766-cba97fa9-d056-4413-a7c4-e46da46a80d1.png)
 
-  <p dir="rtl" align="right">
+ <p dir="rtl" align="right">
 مراحل مختلف فاز اول:
  </p>
  
-    <p dir="rtl" align="right">
+ 
+ <p dir="rtl" align="right">
  ۱. از main.js اولین import ما را به a.js می برد
  </p>
  
-        <p dir="rtl" align="right">
+ <p dir="rtl" align="right">
  ۲. در a.js ایمپورتی را مشاهده که به b.js اشاره دارد.
  </p>
  
-            <p dir="rtl" align="right">
+ <p dir="rtl" align="right">
  ۳. در b.js ما همچنین ایمپورت a.js را داریم. اما چون a.js قبل بازدید شده است دوباره بررسی نمی شود
  </p>
  
-                <p dir="rtl" align="right">
+ <p dir="rtl" align="right">
  ۴. در این مرحله اکتشاف به عقب برمیگردد. b.js ایمپورت دیگری ندارد بنابراین به a.js بارمیگردیم. که اینم ایمپورت دیگری ندارد پس به main.js برمی گردیم. که در اینجا ایمپورت دیگری را مشاهده که به b.js اشاره دارد ولی چون قبلا این ماژول بررسی شده نادیده گرفته می شود. 
   </p>
+  
+  
 # 13-esm-circular-dependency
 
 This sample demonstrates that ESM can effectively resolve circular dependencies.
