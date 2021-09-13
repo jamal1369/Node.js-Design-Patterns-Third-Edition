@@ -53,6 +53,80 @@ fs.readFile('fake-path', (err, data) => {                    // (3)
 mockDisable()
 ```
 
+<p dir="rtl" align="right">
+بررسی انچه در این مثال اتفاق افتاده است:
+</p>
+
+<p dir="rtl" align="right">
+۱. ماژول پیش فرض fs را ایمپورت می کنیم. ما ایمپورت کردیم default export  ماژول اصلی را دقیقا شبیه انجه در فایل mock-read-file.js انجام داده بودیم
+</p>
+
+<p dir="rtl" align="right">
+۲. در اینجا ما تابع تقلبی را فعال میکنیم و برای هر فایل خوانده شده می خواهیم وجود رشته hello world در فایل را شبیه سازی کنیم
+</p>
+
+<p dir="rtl" align="right">
+۳. در نهایت یک فایل را با یک مسیر الکی میخوانیم. که hello world توسط تابع ساختگی ما چاپ می شود و پس از فراخوانی تابع، با استفاده از mockDisable() دوباره نسخه اصلی تابع را فعال میکنیم.
+</p>
+
+<p dir="rtl" align="right">
+ این روش کار می کند ولی شکننده است.ممکن است در جاهایی کار نکند. در سمت mock-read-file.js ما می توانیم دو ایمپورت زیر برای ماژول fs امتحان کنیم:
+ </p>
+
+```
+import * as fs from 'fs' // then use fs.readFile
+or
+import { readFile } from 'fs'
+```
+
+<p dir="rtl" align="right">
+هر دو ایمپورت معتبری هستند چون ماژول fs تمام توابع خود را named exports اکپسورت میکند (به غیراز default export که یک ابجکت با مجموعه ای از توابع به عنوان ویژگی می باشد)
+</p>
+
+<p dir="rtl" align="right">
+مشکلات خاصی در دو دستور قبلی import وجود دارد:
+</p>
+
+<p dir="rtl" align="right">
+- ما یک read only live binding در تابع readFile()  میگیریم. و از این رو، ما نمی توانیم ان را از ماژول خارجی تغییر دهیم. اگر اینکار را انجام دهیم خطایی در موقع reassign تایع readFile() میگیریم
+</p>
+
+<p dir="rtl" align="right">
+- مشکل دیگر در سمت مصرف کننده با main.js ماست. جایی که ما از این دو سبک ایمپورت می توانیم استفاده کنیم. پس اگر کسی از این دو سبک استفاده کند دیگر کد سفارشی شده ما را نمی تواند استفاده کند و خطا می خورد.
+</p>
+
+<p dir="rtl" align="right">
+دلیل استفاده نکردن از دو روش import بالا در این مثال، این است که کد مسخره ما فقط یک کپی تابع readFile() که در داخل ابجکت اکسپورت شده از default exportقرار دارد را تغییر می دهد. (نه تایع موجود که با named export در بالای ماژول اکسپورت شده است)
+</p>
+
+<p dir="rtl" align="right">
+این مثال نشان می دهد که چگونه وصله میمون می تواند در ماژول ES می تواند پیچیده تر و غیرقابل اعتمادتر باشد. به هیمن دلیل فریمورک های تست مثل Jest ویژگی هایی ارائه می دهند تا بتوانیم با اطمینان بیشتری این کار را انجام دهیم (jest-mock)
+</p>
+
+<p dir="rtl" align="right">
+رویکرد دیگری که برای mock modules می توان استفاده کرد تکیه بر hook های موجود در ماژول های هسته نود جی اس می باشد که module نامیده میشود (nodejsdp.link/module-doc) یک کتابخانه از این ماژول mocku نام دارد. (با بررسی کدش ببین چیکار میکنه)
+</p>
+
+<p dir="rtl" align="right">
+همچنین می توانیم از تابع syncBuiltinESMExports() از module package استفاده کنیم. وقتی این تابع فراخوانی می شود مقادیر ویژگی ها در ایجکت default export دوباره دز معادل named exports  ترسیم میشود. که هرگونه تغییرات خارجی در عملکرد ماژول را حتی در named exports را نیز ممکن می سازد. 
+</p>
+
+```
+import fs, { readFileSync } from 'fs'
+import { syncBuiltinESMExports } from 'module'
+fs.readFileSync = () => Buffer.from('Hello, ESM')
+syncBuiltinESMExports()
+console.log(fs.readFileSync === readFileSync) // true
+```
+
+<p dir="rtl" align="right">
+ما از این روش می توانیم برای انعطاف پذیر کردن فایل سیستم کوچک مسخره (mock) خودمون بوسیله صدا زدن syncBuiltinESMExports()  بهره ببریم. 
+</p>
+
+<p dir="rtl" align="right">
+توجه کنید که syncBuiltinESMExports() فقط برای ماژول های درونی نودجی اس مثل fs در این مثال کار میکند (ماژول هسته)
+</p>
+
 
 
 # 15-esm-modifying-other-modules
